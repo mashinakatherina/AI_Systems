@@ -34,7 +34,6 @@ dad(alexey, alyssa).
 
 
 children(X,Y):-(dad(Y,X);mom(Y,X)).
-children(X,Y):-(dad(Z,X);mom(Z,X)),children(Z,Y).
 parent(X,Y):-(dad(X,Y);mom(X,Y)).
 parent(X,Y):-(dad(X,Z);mom(X,Z)),parent(Z,Y).
 uncle(Z,C):-((dad(Y,Z),dad(Y,X),dad(X,C),Z\=X);(dad(Y,Z),dad(Y,X),mom(X,C),Z\=X)),male(Z).
