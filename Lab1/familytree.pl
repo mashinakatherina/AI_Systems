@@ -35,12 +35,12 @@ dad(alexey, alyssa).
 
 children(X,Y):-(dad(Y,X);mom(Y,X)).
 parent(X,Y):-(dad(X,Y);mom(X,Y)).
-parent(X,Y):-(dad(X,Z);mom(X,Z)),parent(Z,Y).
 uncle(Z,C):-((dad(Y,Z),dad(Y,X),dad(X,C),Z\=X);(dad(Y,Z),dad(Y,X),mom(X,C),Z\=X)),male(Z).
 aunt(Z,C):-((dad(Y,Z),dad(Y,X),dad(X,C),Z\=X);(dad(Y,Z),dad(Y,X),mom(X,C),Z\=X)),not(male(Z)).
 cousin(C,Z):-((dad(Y,Z),dad(Y,X),dad(X,C),Z\=X);(dad(Y,Z),dad(Y,X),mom(X,C),Z\=X)),male(C).
 fem_cousin(C,Z):-((dad(Y,Z),dad(Y,X),dad(X,C),Z\=X);(dad(Y,Z),dad(Y,X),mom(X,C),Z\=X)),not(male(C)).
 granddad(C,Z):-dad(C,Y),(dad(Y,Z);mom(Y,Z)).
+grandmom(C,Z):-mom(C,Y),(dad(Y,Z);mom(Y,Z)).
 sister(C,Z):-((dad(X,C),dad(X,Z)),(mom(Y,C),mom(Y,Z))),C\=Z,Z\=C,not(male(C)).
 first_cousin(K,C):-((dad(Y,Z),dad(Y,X),(dad(X,K);mom(X,K)),(dad(Z,C);mom(Z,C)),Z\=X)),male(K).
 first_fem_cousin(K,C):-((dad(Y,Z),dad(Y,X),(dad(X,K);mom(X,K)),(dad(Z,C);mom(Z,C)),Z\=X)),not(male(K)).
